@@ -14,7 +14,7 @@ function SignIn() {
   )
 }
 
-function SignOut({ children }: { children: React.ReactNode }) {
+function SignOut() {
   return (
     <form
       action={async () => {
@@ -22,20 +22,31 @@ function SignOut({ children }: { children: React.ReactNode }) {
         await signOut()
       }}
     >
-      <p className='mb-2'>{children}</p>
       <button type='submit'>Sign out</button>
     </form>
   )
 }
 
 export default async function Home() {
-  let session = await auth()
-  let user = session?.user?.email
+  const session = await auth()
+  const email = session?.user?.email
+  const name = session?.user?.name
 
   return (
     <>
-      <h1>Next Auth App Router</h1>
-      <div>{user ? <SignOut>{`Welcome ${user}`}</SignOut> : <SignIn />}</div>
+      <h1 className='text-2xl'>Next Auth App Router</h1>
+      <div>
+        {session ? (
+          <>
+            <p className='font-bold'>Hello, {name}</p>
+            <p className='text-sm text-gray-500 mb-2'>{email}</p>
+
+            <SignOut />
+          </>
+        ) : (
+          <SignIn />
+        )}
+      </div>
     </>
   )
 }
