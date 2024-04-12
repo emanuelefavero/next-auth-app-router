@@ -8,7 +8,7 @@ function SignIn() {
         await signIn('github')
       }}
     >
-      <p>You are not logged in</p>
+      <p className='mb-2'>You are not logged in</p>
       <button type='submit'>Sign in with GitHub</button>
     </form>
   )
@@ -22,7 +22,7 @@ function SignOut({ children }: { children: React.ReactNode }) {
         await signOut()
       }}
     >
-      <p>{children}</p>
+      <p className='mb-2'>{children}</p>
       <button type='submit'>Sign out</button>
     </form>
   )
@@ -34,7 +34,7 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className='text-purple-500'>Next Auth App Router</h1>
+      <h1>Next Auth App Router</h1>
       <div>{user ? <SignOut>{`Welcome ${user}`}</SignOut> : <SignIn />}</div>
     </>
   )
