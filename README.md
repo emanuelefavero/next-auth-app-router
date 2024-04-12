@@ -2,6 +2,16 @@
 
 This is an example of how to implement authentication with NextAuth in Next.js App Router
 
+### Screenshots
+
+##### Sign In
+
+<img src="screenshot.png" alt="screenshot" width="300">
+
+##### Sign Out
+
+<img src="screenshot-2.png" alt="screenshot" width="300">
+
 ## Getting Started
 
 - Clone the repository
