@@ -18,10 +18,21 @@ This is an example of how to implement authentication with NextAuth in Next.js A
 - Add `.env.local` file with the following content:
 
 ```bash
-AUTH_GITHUB_ID= # go to GitHub Developer Settings to get the ID
-AUTH_GITHUB_SECRET= # go to GitHub Developer Settings to get the Secret
+AUTH_GITHUB_ID=
+AUTH_GITHUB_SECRET=
+AUTH_GOOGLE_ID=
+AUTH_GOOGLE_SECRET=
 AUTH_SECRET= # a random string, see .env.example for instructions
 ```
+
+> To get the `AUTH_GITHUB_ID` and `AUTH_GITHUB_SECRET` you need to create a new OAuth App in your GitHub account. Follow this guide: [GitHub NextAuth](https://www.youtube.com/watch?v=v2u8EDGFVpo)
+>
+> To get the `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET` you need to create a new OAuth App in your Google account. Follow this guide: [Google NextAuth](https://www.youtube.com/watch?v=A53T9_V8aFk)
+>
+> BEWARE: Use these URLs as the callback URLs during configuration (the ones in the videos could be different):
+>
+> - `http://localhost:3000/api/auth/callback/github`
+> - `http://localhost:3000/api/auth/callback/google`
 
 - Run:
 
