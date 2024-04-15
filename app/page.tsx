@@ -58,7 +58,7 @@ export default async function Home() {
     <>
       <h1 className='text-2xl'>Next Auth App Router</h1>
       <div>
-        {session ? (
+        {session && session.user ? (
           <>
             <p className='font-bold'>Hello, {name}</p>
             <p className='text-sm text-gray-500 mb-2'>{email}</p>
