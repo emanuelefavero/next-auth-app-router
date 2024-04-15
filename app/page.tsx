@@ -1,6 +1,6 @@
 import { auth, signIn, signOut } from '@/auth'
 
-function SignIn() {
+function SignInWithGitHub() {
   return (
     <form
       action={async () => {
@@ -8,8 +8,20 @@ function SignIn() {
         await signIn('github')
       }}
     >
-      <p className='mb-2'>You are not logged in</p>
       <button type='submit'>Sign in with GitHub</button>
+    </form>
+  )
+}
+
+function SignInWithGoogle() {
+  return (
+    <form
+      action={async () => {
+        'use server'
+        await signIn('google')
+      }}
+    >
+      <button type='submit'>Sign in with Google</button>
     </form>
   )
 }
@@ -44,7 +56,11 @@ export default async function Home() {
             <SignOut />
           </>
         ) : (
-          <SignIn />
+          <>
+            <p className='mb-2'>You are not logged in</p>
+            <SignInWithGoogle />
+            <SignInWithGitHub />
+          </>
         )}
       </div>
     </>
