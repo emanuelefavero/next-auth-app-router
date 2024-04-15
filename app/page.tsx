@@ -1,5 +1,21 @@
 import { auth, signIn, signOut } from '@/auth'
 
+function SignInWithGoogle() {
+  return (
+    <form
+      action={async () => {
+        'use server'
+        await signIn('google')
+      }}
+      className='mb-1'
+    >
+      <button className='bg-[#4285F4] hover:bg-[#4a8bf7]' type='submit'>
+        Sign in with Google
+      </button>
+    </form>
+  )
+}
+
 function SignInWithGitHub() {
   return (
     <form
@@ -8,20 +24,12 @@ function SignInWithGitHub() {
         await signIn('github')
       }}
     >
-      <button type='submit'>Sign in with GitHub</button>
-    </form>
-  )
-}
-
-function SignInWithGoogle() {
-  return (
-    <form
-      action={async () => {
-        'use server'
-        await signIn('google')
-      }}
-    >
-      <button type='submit'>Sign in with Google</button>
+      <button
+        className='bg-black hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-100'
+        type='submit'
+      >
+        Sign in with GitHub
+      </button>
     </form>
   )
 }
@@ -34,7 +42,9 @@ function SignOut() {
         await signOut()
       }}
     >
-      <button type='submit'>Sign out</button>
+      <button className='bg-rose-500 hover:bg-rose-600' type='submit'>
+        Sign out
+      </button>
     </form>
   )
 }
